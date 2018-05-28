@@ -3,14 +3,14 @@
         <title>Fahrtkosten Rechner</title>
         <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
         <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/grids-responsive-min.css">
         <link rel="stylesheet" href="style.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     </head>
     <body>
         <div id="app" >
             <div class="pure-g">
-                <div class="pure-u-1-5">
-                </div>
-                <div class="pure-u-3-5 content">
+                <div class="pure-u-1 pure-md-3-5 content">
                     <div class="pure-u-1 header">
                         <h2>Fartkosten-Rechner</h2>
                     </div>
@@ -44,8 +44,6 @@
                     <div class="pure-u-1 result">
                         <h3>Kosten pro Person: {{ parseFloat(Math.round(distanceKm * fuelPer100Km / 100 * fuelPricePerLiter * 100) / persons / 100).toFixed(2)}} Euro</h3>
                     </div>
-                </div>
-                <div class="pure-u-1-5">
                 </div>
                 <div class="pure-u-1 footer">
                         <span>erstellt von <a href="https://www.devno.com">devno</a></span>
