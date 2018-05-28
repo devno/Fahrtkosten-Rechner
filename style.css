@@ -1,0 +1,9 @@
+.header, .result{
+    text-align: center;
+}
+
+.footer{
+    text-align: right;
+    margin-top: 10%;
+    font-weight: lighter;
+}

@@ -1,0 +1,67 @@
+<html>
+    <head>
+        <title>Fahrtkosten Rechner</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div id="app" >
+            <div class="pure-g">
+                <div class="pure-u-1-5">
+                </div>
+                <div class="pure-u-3-5 content">
+                    <div class="pure-u-1 header">
+                        <h2>Fartkosten-Rechner</h2>
+                    </div>
+                    <div class="pure-u-1 ">
+                        <form class="pure-form pure-form-aligned">
+                            <fieldset>
+                                <div class="pure-control-group">
+                                    <label for="distance">Distanz</label>
+                                    <input id="distance" type="number" v-model="distanceKm" step="any" min=0>
+                                    <span class="pure-form-message-inline">km</span>
+                                </div>
+                                <div class="pure-control-group">
+                                    <label for="mileage">Verbrauch</label>
+                                    <input id="mileage" type="number" v-model="fuelPer100Km" step=".5">
+                                    <span class="pure-form-message-inline">Liter / 100km</span>
+                                </div>
+                                <div class="pure-control-group">
+                                    <label for="price">Preis pro Liter</label>
+                                    <input id="price" type="number" v-model="fuelPricePerLiter" step=".01" min=0.0>
+                                    <span class="pure-form-message-inline">Euro</span>
+                                </div>
+                                <div class="pure-control-group">
+                                    <label for="price">Personen</label>
+                                    <input id="price" type="number" v-model="persons" step="1" min=1>
+                                    <span class="pure-form-message-inline">Anzahl</span>
+                                </div>
+                                
+                            </fieldset>
+                        </form>
+                    </div>
+                    <div class="pure-u-1 result">
+                        <h3>Kosten pro Person: {{ parseFloat(Math.round(distanceKm * fuelPer100Km / 100 * fuelPricePerLiter * 100) / persons / 100).toFixed(2)}} Euro</h3>
+                    </div>
+                </div>
+                <div class="pure-u-1-5">
+                </div>
+                <div class="pure-u-1 footer">
+                        <span>erstellt von <a href="https://www.devno.com">devno</a></span>
+                    </div>
+            </div>
+        </div>
+        <script>
+            var app = new Vue({
+                el:"#app",
+                data:{
+                    distanceKm: 100,
+                    fuelPer100Km: 6.5,
+                    fuelPricePerLiter: 1.2,
+                    persons: 1.0
+                }
+            })
+        </script>
+    </body>
+</html>
